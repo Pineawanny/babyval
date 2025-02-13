@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Valentine's Day!</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Papyrus', Fantasy;
+            color: #ff3366;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            background:
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0;
+        }
+        p {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+        p {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+        .heart {
+            color: #ff3366;
+            font-size: 30em;
+            animation: heartbeat 1s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <video autoplay muted loop>
+        <source src="gig.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="content">
+       
+        <h1>Happy Valentine's Day, Tornye Deka!</h1>
+        <p>My sweet intelligent and hardworking living thing,</p>
+        <p> On this special day, I want to remind you how much you mean to me. You are the light of my life, and Every moment I share with you is special.
+        <br>I am grateful for every second we share together.</p>
+        <p>With all my heart, I love you!</p>
+        <p>La KAKA</p>
+    </div>
+    
+    <audio id="backgroundMusic" loop>
+        <source src="Joey-B-Princess-Halmblog.com_.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const musicButton = document.getElementById('toggleMusicButton');
+        const music = document.getElementById('backgroundMusic');
+        const messageButton = document.getElementById('showMessageButton');
+
+        musicButton.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+                musicButton.textContent = 'Pause Music';
+            } else {
+                music.pause();
+                musicButton.textContent = 'Play Music';
+            }
+        });
+
+        messageButton.addEventListener('click', () => {
+            alert('Surprise! Looking forward to many more moments together. ❤️');
+        });
+    </script>
+</body>
+</html>
