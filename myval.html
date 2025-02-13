@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce0e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #e91e63;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            flex: 1;
+            min-width: 120px;
+            box-sizing: border-box;
+        }
+
+        #yesButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #yesButton:hover {
+            background-color: #45a049;
+        }
+
+        #noButton {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #noButton:hover {
+            background-color: #da190b;
+        }
+
+        #message {
+            margin-top: 20px;
+        }
+
+        .bubble {
+            position: absolute;
+            background-color: rgba(255, 0, 0, 0.7); /* Red for hearts */
+            border-radius: 50%;
+            animation: float 5s linear infinite;
+            z-index: -1;
+        }
+
+        .heart {
+            background-image: url("revolving_hearts.png"); /* Replace with your heart image */
+            background-size: cover;
+        }
+
+        .sad {
+            background-image: url("cry.png"); /* Replace with your sad face image */
+            background-size: cover;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-20vh); opacity: 0; }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            p {
+              font-size: 1em;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            button {
+              flex: 1;
+              min-width: auto;
+              width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Be My Valentine?</h1>
+        <img src="CUTI.jpg" alt="Your Image">
+        <p>You make every day feel like a dream come true. I can't imagine spending Valentine's Day with anyone else. Would you do me the honor of being my Valentine?</p>
+        <div class="buttons">
+            <button id="yesButton">Yes!</button>
+            <button id="noButton">No, Thank You</button>
+        </div>
+        <div id="message" style="display:none;">
+            <p>I LOVE YOU!</p>
+        </div>
+    </div>
+
+    <script>
+        function createBubble(type) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble', type);
+
+            const size = Math.random() * 30 + 20;
+            bubble.style.width = size + 'px';
+            bubble.style.height = size + 'px';
+
+            const x = Math.random() * 100;
+            bubble.style.left = x + 'vw';
+
+            document.body.appendChild(bubble);
+
+            setTimeout(() => {
+                bubble.remove();
+            }, 5000);
+        }
+
+        document.getElementById('yesButton').addEventListener('click', function() {
+            document.getElementById('message').style.display = 'block';
+            for (let i = 0; i < 20; i++) {
+                createBubble('heart');
+            }
+        });
+
+        document.getElementById('noButton').addEventListener('click', function() {
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('message').innerText = "That's okay! Thank you for considering.";
+            for (let i = 0; i < 20; i++) {
+                createBubble('sad');
+            }
+        });
+    </script>
+</body>
+</html>
